@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title> MACHINE LEARNING</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://unpkg.com/ml5@0.20.0-alpha.4/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <p>
+            <a href="index.html">HOLA</a>
+            <a href="page-1.html">BODYPOSE</a>
+            <a href="page-2.html">BODYSEGMENTATION</a>
+            <a href="page-3.html" class="activo">HANDPOSE</a>
+            <a href="page-4.html">FACEMESH</a>
+        </p>
+        <h1>HANDPOSE</h1>
+    </header>
+     <main>
+        <!-- The video feed will be displayed here -->
+     </main>
+    <script>
+ /*
+ * 👋 Hello! This is an ml5.js example made and shared with ❤️.
+ * Learn more about the ml5.js project: https://ml5js.org/
+ * ml5.js license and Code of Conduct: https://github.com/ml5js/ml5-next-gen/blob/main/LICENSE.md
+ *
+ * This example demonstrates hand tracking on live video through ml5.handPose.
+ */
+
+let handPose;
+let video;
+let hands = [];
+
+function preload() {
+  // Load the handPose model
+  handPose = ml5.handPose();
+}
+
+function setup() {
+  createCanvas(640, 480);
+  // Create the webcam video and hide it
+  video = createCapture(VIDEO);
+  video.size(640, 480);
+  video.hide();
+  // start detecting hands from the webcam video
+  handPose.detectStart(video, gotHands);
+}
+
+function draw() {
+  // Draw the webcam video
+  tint(138, 23, 0);
+  brightness(50)
+  image(video, 0, 0, width, height);
+
+  // Draw all the tracked hand points
+  for (let i = 0; i < hands.length; i++) {
+    let hand = hands[i];
+    for (let j = 0; j < hand.keypoints.length; j++) {
+      let keypoint = hand.keypoints[j];
+      fill(255);
+      noStroke();
+           drawStar(keypoint.x, keypoint.y, 5, 10, 5); // Draw star
+    }
+  }
+}
+
+// Function to draw a star shape
+function drawStar(x, y, radius1, radius2, npoints) {
+  let angle = TWO_PI / npoints;
+  let halfAngle = angle / 3.0;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius2;
+    let sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
+
+// Callback function for when handPose outputs data
+function gotHands(results) {
+  // save the output to the hands variable
+  hands = results;
+}
+</script>
+</body>
+</html>

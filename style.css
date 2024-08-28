@@ -1,0 +1,82 @@
+html,
+body {
+    background: #210000;
+    color: #dbb9b4;
+    font-family: Quicksand, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
+    z-index: 2;
+    width: 70vw;
+}
+
+@media (orientation: landscape) {
+    header {
+        width: 45vw;
+    }
+}
+
+a {
+    color: #963426;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+a:hover {
+    color: #dbb9b4;
+}
+
+a.activo {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: calc(1rem + 1vw);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+    font-weight: bold;
+    margin-left: -5px;
+}
+
+h2 {
+    font-size: calc(1rem + 0.8vw);
+}
+
+p {
+    line-height: 1.5;
+}
+
+aside {
+    z-index: 2;
+    position: absolute;
+    left: 3rem;
+    bottom: 2rem;
+}
+
+aside button {
+    padding: .3rem .6rem;
+    font-weight: bold;
+}
+
+canvas {
+    position: relative;
+    display: block;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+}
