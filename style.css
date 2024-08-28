@@ -2,7 +2,7 @@ html,
 body {
     background: #210000;
     color: #dbb9b4;
-    font-family: Anonymous Pro, sans-serif;
+    font-family: "Anonymous Pro", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -89,4 +89,5 @@ canvas {
   font-weight: 700;
   font-style: normal;
 }
+
 }
