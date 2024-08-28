@@ -2,7 +2,7 @@ html,
 body {
     background: #210000;
     color: #dbb9b4;
-    font-family: Quicksand, sans-serif;
+    font-family: Anonymous Pro, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -78,5 +78,15 @@ canvas {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 
 }
+.anonymous-pro-regular {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
 
+.anonymous-pro-bold {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
 }
